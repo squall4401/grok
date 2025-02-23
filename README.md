@@ -21,7 +21,15 @@
     - Think模式：思维链长度是DeepSeek R1的10倍，推理速度反而更快，复杂问题分步推理（如生成3D行星轨道代码）。
     - 多模态处理：同步解析文本+图像（例：分析医学CT报告）
 
+## 分享
+
+- 市面上最强大，完全免费开源的 [Midjourney API](https://github.com/trueai-org/midjourney-proxy) 免费绘图平台。
+- 阿里云盘官方 API 授权的自动同步和备份工具 [MDrive](https://github.com/trueai-org/mdrive)，支持挂载到本地磁盘。
+- 使用 Deno 免费代理 Google Gemini，国内直连，不限地区/网络环境，打开即用，开源地址：[Gemini](https://github.com/trueai-org/gemini)
+
 ## Deno 部署
+
+> Bilibili 视频教程：<https://www.bilibili.com/video/BV1DDA3eEExa/>
 
 1. 点击 [Fork](https://github.com/trueai-org/grok/fork) 本项目（万分感谢帮助点个 `Star`）
 2. 登录/注册 X 账号 <https://grok.com>（用 Gmail 或 Outlook 邮箱登录 X 官网）
@@ -29,7 +37,7 @@
 4. 选择此项目，填写项目名字（分配 Deno 域名）
 5. 部署 Entrypoint 填写 `src/deno_index.ts` 其他字段留空 
 6. 点击 **Deploy Project**
-7. 部署成功后获得 Deno 域名，打开刚刚部署项目 -> `Settings` -> `Environment Variables` -> 添加 cookie 到环境变量，完成后就可以在任意地点/任意设备访问了。
+7. 部署成功后获得 Deno 域名，打开刚刚部署项目 -> `Settings` -> `Environment Variables` -> 添加 cookie 到环境变量，完成后就可以在任意地点/任意设备访问 Grok3 了。
 
 ## Deno 调试
 
