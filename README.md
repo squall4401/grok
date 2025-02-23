@@ -18,24 +18,15 @@
     - Think模式：思维链长度是DeepSeek R1的10倍，推理速度反而更快，复杂问题分步推理（如生成3D行星轨道代码）。
     - 多模态处理：同步解析文本+图像（例：分析医学CT报告
 
-## 国内直连 Grok 3
-
-1. 免费体验，Grork3 每日有频率限制（Grok2 不限次数）
-1. 科学上网：连接美国/新加坡节点（推荐使用V2Ray协议加速）
-2. 注册 X 账号：用 Gmail 或 Outlook 邮箱登录 X 官网
-3. 访问入口：点击 x.com Grok 页面或 grok.com，无需订阅即可使用基础功能
-4. 付费解锁全功能（Premium+订阅，申请虚拟卡等方式）
-
 ## Deno 部署
 
 1. 点击 [Fork](https://github.com/trueai-org/grok/fork) 本项目（万分感谢帮助点个 `Star`）
-2. 登录/注册 X <https://grok.com>（用 Gmail 或 Outlook 邮箱登录 X 官网）
-3. 点击创建项目 https://dash.deno.com/new_project
-4. 选择此项目，填写项目名字（分配域名）
+2. 登录/注册 X 账号 <https://grok.com>（用 Gmail 或 Outlook 邮箱登录 X 官网）
+3. 点击创建 Deno 项目 https://dash.deno.com/new_project
+4. 选择此项目，填写项目名字（分配 Deno 域名）
 5. 部署 Entrypoint 填写 `src/deno_index.ts` 其他字段留空 
 6. 点击 **Deploy Project**
-7. 部署成功后获得域名。
-
+7. 部署成功后获得 Deno 域名。
 
 ## Deno 调试
 
@@ -50,3 +41,11 @@ Mac/Linux 安装 Deno:
 > cd grok
 
 > deno run --allow-net --allow-read src/deno_index.ts
+
+## 其他说明
+
+1. 免费体验，Grork3 每日有频率限制（Grok2 不限次数）
+1. 科学上网：连接美国/新加坡节点（推荐使用V2Ray协议加速）
+2. 注册 X 账号：用 Gmail 或 Outlook 邮箱登录 X 官网
+3. 访问入口：点击 x.com Grok 页面或 grok.com，无需订阅即可使用基础功能
+4. 付费解锁全功能（Premium+订阅，申请虚拟卡等方式）
