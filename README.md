@@ -26,7 +26,7 @@
 4. 选择此项目，填写项目名字（分配 Deno 域名）
 5. 部署 Entrypoint 填写 `src/deno_index.ts` 其他字段留空 
 6. 点击 **Deploy Project**
-7. 部署成功后获得 Deno 域名。
+7. 部署成功后获得 Deno 域名，然后打开训练场，修改 cookie，完成后就可以在任意地点/任意设备访问了。
 
 ## Deno 调试
 
