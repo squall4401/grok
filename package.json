@@ -1,0 +1,9 @@
+{
+  "name": "grok3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node src/deno_index.ts"
+  },
+  "devDependencies": {}
+}
