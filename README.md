@@ -40,7 +40,7 @@ Mac/Linux 安装 Deno:
 
 > cd grok
 
-> deno run --allow-net --allow-read src/deno_index.ts
+> deno run --allow-env --allow-net --allow-read src/deno_index.ts
 
 ## 其他说明
 

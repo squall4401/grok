@@ -57,7 +57,7 @@ async function handleWebSocket(req: Request): Promise<Response> {
   return response;
 }
 
-
+const cookie = Deno.env.get("cookie");
 
 const handler = async (req: Request): Promise<Response> => {
   if (req.headers.get("Upgrade")?.toLowerCase() === "websocket") {
@@ -72,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
   headers.set("Host", targetUrl.host);
   headers.delete("Referer");
   headers.delete("Cookie");
-  headers.set("cookie", "你的cookie");
+  headers.set("cookie", cookie || '');
 
   try {
     const proxyResponse = await fetch(targetUrl.toString(), {
