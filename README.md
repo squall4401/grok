@@ -23,9 +23,9 @@
 
 ## 分享
 
-- 市面上最强大，完全免费开源的 [Midjourney API](https://github.com/trueai-org/midjourney-proxy) 免费绘图平台。
-- 阿里云盘官方 API 授权的自动同步和备份工具 [MDrive](https://github.com/trueai-org/mdrive)，支持挂载到本地磁盘。
-- 使用 Deno 免费代理 Google Gemini，国内直连，不限地区/网络环境，打开即用，开源地址：[Gemini](https://github.com/trueai-org/gemini)
+- [Midjourney API](https://github.com/trueai-org/midjourney-proxy)：市面上最强大，完全免费开源的免费绘图平台。
+- [MDrive](https://github.com/trueai-org/mdrive)：阿里云盘官方 API 授权的自动同步和备份工具，支持挂载到本地磁盘。
+- [Gemini](https://github.com/trueai-org/gemini)：使用 Deno 免费代理 Google Gemini，国内直连，不限地区/网络环境，打开即用。
 
 ## Deno 部署
 
