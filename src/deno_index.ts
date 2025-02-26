@@ -2,7 +2,19 @@ import { serve } from "https://deno.land/std@0.202.0/http/server.ts";
 
 const TARGET_URL = "https://grok.com";
 const ORIGIN_DOMAIN = "grok.com"; // 注意：此处应仅为域名，不含协议
-
+const AUTH_USERNAME = Deno.env.get("AUTH_USERNAME") || "admin";
+const AUTH_PASSWORD = Deno.env.get("AUTH_PASSWORD") || "admin";
+// 验证函数
+function isValidAuth(authHeader: string): boolean {
+  try {
+    const base64Credentials = authHeader.split(" ")[1];
+    const credentials = atob(base64Credentials);
+    const [username, password] = credentials.split(":");
+    return username === AUTH_USERNAME && password === AUTH_PASSWORD;
+  } catch {
+    return false;
+  }
+}
 async function handleWebSocket(req: Request): Promise<Response> {
   const { socket: clientWs, response } = Deno.upgradeWebSocket(req);
 
@@ -60,6 +72,16 @@ async function handleWebSocket(req: Request): Promise<Response> {
 const cookie = Deno.env.get("cookie");
 
 const handler = async (req: Request): Promise<Response> => {
+  // Basic Auth 验证
+  const authHeader = req.headers.get("Authorization");
+  if (!authHeader || !isValidAuth(authHeader)) {
+    return new Response("Unauthorized", {
+      status: 401,
+      headers: {
+        "WWW-Authenticate": 'Basic realm="Proxy Authentication Required"',
+      },
+    });
+  }
   if (req.headers.get("Upgrade")?.toLowerCase() === "websocket") {
     return handleWebSocket(req);
   }
@@ -72,6 +94,7 @@ const handler = async (req: Request): Promise<Response> => {
   headers.set("Host", targetUrl.host);
   headers.delete("Referer");
   headers.delete("Cookie");
+  headers.delete("Authorization"); // 删除验证头，不转发到目标服务器
   headers.set("cookie", cookie || '');
 
   try {
