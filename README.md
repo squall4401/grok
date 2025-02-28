@@ -39,6 +39,8 @@
 6. 点击 **Deploy Project**
 7. 部署成功后获得 Deno 域名，打开刚刚部署项目 -> `Settings` -> `Environment Variables` -> 添加 cookie 到环境变量，完成后就可以在任意地点/任意设备访问 Grok3 了。
 
+> 如果需要配置账号密码，则配置 Deno 环境变量 AUTH_USERNAME 和 AUTH_PASSWORD。
+
 ## Deno 调试
 
 Windows 安装 Deno:

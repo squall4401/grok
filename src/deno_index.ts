@@ -2,8 +2,12 @@ import { serve } from "https://deno.land/std@0.202.0/http/server.ts";
 
 const TARGET_URL = "https://grok.com";
 const ORIGIN_DOMAIN = "grok.com"; // 注意：此处应仅为域名，不含协议
-const AUTH_USERNAME = Deno.env.get("AUTH_USERNAME") || "admin";
-const AUTH_PASSWORD = Deno.env.get("AUTH_PASSWORD") || "admin";
+
+const AUTH_USERNAME = Deno.env.get("AUTH_USERNAME");
+const AUTH_PASSWORD = Deno.env.get("AUTH_PASSWORD");
+
+const COOKIE = Deno.env.get("cookie");
+
 // 验证函数
 function isValidAuth(authHeader: string): boolean {
   try {
@@ -69,12 +73,11 @@ async function handleWebSocket(req: Request): Promise<Response> {
   return response;
 }
 
-const cookie = Deno.env.get("cookie");
 
 const handler = async (req: Request): Promise<Response> => {
   // Basic Auth 验证
   const authHeader = req.headers.get("Authorization");
-  if (!authHeader || !isValidAuth(authHeader)) {
+  if (AUTH_USERNAME && AUTH_PASSWORD && (!authHeader || !isValidAuth(authHeader))) {
     return new Response("Unauthorized", {
       status: 401,
       headers: {
@@ -82,6 +85,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   }
+
   if (req.headers.get("Upgrade")?.toLowerCase() === "websocket") {
     return handleWebSocket(req);
   }
@@ -95,7 +99,7 @@ const handler = async (req: Request): Promise<Response> => {
   headers.delete("Referer");
   headers.delete("Cookie");
   headers.delete("Authorization"); // 删除验证头，不转发到目标服务器
-  headers.set("cookie", cookie || '');
+  headers.set("cookie", COOKIE || '');
 
   try {
     const proxyResponse = await fetch(targetUrl.toString(), {
