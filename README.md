@@ -31,6 +31,8 @@
 
 > Bilibili 视频教程：<https://www.bilibili.com/video/BV1DDA3eEExa/>
 
+⚠ **声明：grok 官方已屏蔽 Deno 中转代理方式，大家可自行使用阿里/腾讯境外节点转发**
+
 1. 点击 [Fork](https://github.com/trueai-org/grok/fork) 本项目（万分感谢帮助点个 `Star`）
 2. 登录/注册 X 账号 <https://grok.com>（用 Gmail 或 Outlook 邮箱登录 X 官网）
 3. 点击创建 Deno 项目 https://dash.deno.com/new_project
